@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+
+// @FIXME: Should the content be in this file? And we just require it from index?
+//executable CLI entry point into this util
+require('../index.js');
