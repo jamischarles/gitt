@@ -58,14 +58,30 @@ program
 program
 .command('pr')
 .description('Print open PRs on this repo')
-.action(function (stage) {
+.action(function () {
   // program.country gets pulled from the options passed in and set using .option above
   var config = {
     // 'country': program.country
   };
-  gitt.getOpenPRs(stage, config);
+  gitt.getOpenPRs();
+});
+
+program
+.command('open')
+.description('Open PR [number] on this repo')
+.action(function (number) {
+  // program.country gets pulled from the options passed in and set using .option above
+  var config = {
+    // 'country': program.country
+  };
+  gitt.viewPR(number);
 });
 
 
 //this kicks everything off and is required
 program.parse(process.argv);
+
+// If no params have been passed, output help
+if (!process.argv.slice(2).length) {
+  program.outputHelp();
+}
